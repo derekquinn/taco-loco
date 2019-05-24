@@ -6,7 +6,7 @@ This is a web service used to calculate order totals. The service will take as i
 
 
 ## About
-- Version 0.0.1 of Taco Loco's Web Service (TLWS) has been buit using the following technologies:
+- Version 0.0.1 of Taco Loco's Web Service (TLWS) has been built using the following technologies:
 ```
 - Java SE-1.8 (Java SE 11.0.1)
 - Spring MVC 
@@ -14,7 +14,7 @@ This is a web service used to calculate order totals. The service will take as i
 ```
 
 ## Easy Access
-For easy access, TLWS is hosted using AWS Elastic Beanstalk. Visit this link to test the web application, or send a request:
+For easy access, TLWS is hosted using AWS Elastic Beanstalk. Visit this link to test the web application or send a request:
 
 ### Web App URL
 ```
@@ -48,17 +48,17 @@ Spring Boot Maven plugin has a run goal that is used to compile and run TLWS. Th
 ```
 $ mvn spring-boot:run
 ```
-You might also want to use the MAVEN_OPTS operating system environment variable, as shown in the following example:
+You might also want to use the MAVEN_OPTS operating system environment variable as shown in the following example:
 ```
 $ export MAVEN_OPTS=-Xmx1024m
 ```
 
 ## Setup using Gradle Plugn 
-Spring Boot Gradle includes a bootRun task to run TLWS in an exploded form. The bootRun task is utilized whenyou apply the org.springframework.boot and java plugins and is shown in this example:
+Spring Boot Gradle includes a bootRun task to run TLWS. The bootRun task is utilized when you apply the org.springframework.boot and java plugins and is shown in this example:
 ```
 $ gradle bootRun
 ```
-You might also want to use the JAVA_OPTS operating system environment variable, as shown in the following example:
+You might also want to use the JAVA_OPTS operating system environment variable as shown in the following example:
 ```
 $ export JAVA_OPTS=-Xmx1024m
 ```
