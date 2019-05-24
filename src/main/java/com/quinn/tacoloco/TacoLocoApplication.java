@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TacolocoApplication {
+public class TacoLocoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TacolocoApplication.class, args);
+		SpringApplication.run(TacoLocoApplication.class, args);
 	}
 
 }

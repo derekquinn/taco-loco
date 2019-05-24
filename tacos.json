@@ -1,20 +1,24 @@
 {
-  "tacos": [
-    {
-      "price": 2.5,
-      "filling": "vegetables"
-    },
-    {
-      "price": 3,
-      "filling": "chicken"
-    },
-    {
-      "price": 3,
-      "filling": "beef"
-    },
-    {
-      "price": 3.5,
-      "filling": "chorizo"
-    }
-  ]
+	"tacos": [
+		{
+			"id": 0,
+			"price": 2.5,
+			"description": "Vegetable Taco"
+		},
+		{
+			"id": 1,
+			"price": 3.0,
+			"description": "Chicken Taco"
+		},
+		{
+			"id": 2,
+			"price": 3.0,
+			"description": "Beef Taco"
+		},
+		{
+			"id": 3,
+			"price": 3.5,
+			"description": "Chorizo Taco"
+		}
+	]
 }
