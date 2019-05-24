@@ -39,20 +39,20 @@
 		<table>
 			<tr>
 				<td>Vegetable Taco</td>
-				<td><input type="number" name="vegetableTacoQty"
-					id="vegetableTacoQty" value="0" class="numberinput" /></td>
+				<td><input name="vegetableTacoQty"
+					id="vegetableTacoQty" value="0" maxlength="3" pattern="^((100)|(0)|([1-9][0-9]?))$" /></td>
 			<tr>
 				<td>Chicken Taco</td>
-				<td><input type="number" name="chickenTacoQty"
-					id="chickenTacoQty" value="0" class="numberinput" /></td>
+				<td><input name="chickenTacoQty"
+					id="chickenTacoQty" value="0" class="numberinput"maxlength="3" pattern="^((100)|(0)|([1-9][0-9]?))$" /></td>
 			<tr>
 				<td>Beef Taco</td>
-				<td><input type="number" name="beefTacoQty" id="beefTacoQty"
-					value="0" class="numberinput" /></td>
+				<td><input name="beefTacoQty" id="beefTacoQty"
+					value="0" class="numberinput" maxlength="3" pattern="^((100)|(0)|([1-9][0-9]?))$"/></td>
 			<tr>
 				<td>Chorizo Taco</td>
-				<td><input type="number" name="chorizoTacoQty"
-					id="chorizoTacoQty" value="0" /></td>
+				<td><input name="chorizoTacoQty"
+					id="chorizoTacoQty" value="0" maxlength="3" pattern="^((100)|(0)|([1-9][0-9]?))$"/></td>
 		</table>
 
 		<input type=submit value="Place Order">

@@ -1,17 +1,23 @@
 package com.quinn.tacoloco;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.quinn.tacoloco.model.Order;
 import com.quinn.tacoloco.model.Taco;
 
-@Controller
+@RestController
 public class TacoLocoController {
-
+	
+// Decimal formatter to keep two decimal places proper for currency. 
+	NumberFormat formatter = new DecimalFormat("#0.00");
+	
 	@Autowired
 	private TacoLocoService tacoLocoService;
 
@@ -24,8 +30,9 @@ public class TacoLocoController {
 
 	}
 
+// Invoice shows quantities of each item ordered, subtotal and grand total. 
 	@RequestMapping("/invoice")
-	public ModelAndView submitOrder(@RequestParam("beefTacoQty") Integer beefTacoQty,
+	public Order submitOrder(@RequestParam("beefTacoQty") Integer beefTacoQty,
 			@RequestParam("vegetableTacoQty") Integer vegetableTacoQty,
 			@RequestParam("chickenTacoQty") Integer chickenTacoQty,
 			@RequestParam("chorizoTacoQty") Integer chorizoTacoQty) {
@@ -43,28 +50,31 @@ public class TacoLocoController {
 
 // Calculate grand total and account for discount if more than 4 tacos are ordered.
 		Double grandTotal;
+		Boolean discountApplied;
 		Integer totalTacoQty = beefTacoQty + vegetableTacoQty + chickenTacoQty + chorizoTacoQty;
 		if (totalTacoQty >= 4) {
 			grandTotal = subTotal * 0.8;
+			discountApplied = true;
+			
 		} else {
 			grandTotal = subTotal;
+			discountApplied = false;
 		}
+		
+		subTotal = Math.round(subTotal * 100.00)/100.00;
+		grandTotal =  Math.round(grandTotal * 100.00)/100.00;
 
-// Add necessary quantities and pricing info to view. 
-		ModelAndView mav = new ModelAndView("invoice");
-		mav.addObject("vegetablePrice", vegetablePrice);
-		mav.addObject("chickenPrice", chickenPrice);
-		mav.addObject("beefPrice", beefPrice);
-		mav.addObject("chorizoPrice", chorizoPrice);
-		mav.addObject("vegetableTacoQty", vegetableTacoQty);
-		mav.addObject("beefTacoQty", beefTacoQty);
-		mav.addObject("chorizoTacoQty", chorizoTacoQty);
-		mav.addObject("chickenTacoQty", chickenTacoQty);
-		mav.addObject("subTotal", subTotal);
-		mav.addObject("grandTotal", grandTotal);
-		mav.addObject("totalTacoQty", totalTacoQty);
+// Create Order object and return as JSON. 		
+		Order order = new Order();
+		order.setBeefTacoQty(beefTacoQty);
+		order.setChickenTacoQty(chickenTacoQty);
+		order.setChorizoTacoQty(chorizoTacoQty);
+		order.setVegetableTacoQty(vegetableTacoQty);
+		order.setGrandTotal(grandTotal);
+		order.setSubTotal(subTotal);
+		order.setDiscountApplied(discountApplied);
 
-		return mav;
+		return order;
 	}
 
 }

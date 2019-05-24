@@ -8,16 +8,16 @@ public class Taco {
 	
 	
 
-//	public Taco(String description, Integer id, Double price) {
-//		super();
-//		this.description = description;
-//		this.id = id;
-//		this.price = price;
-//	}
-//	
-//	public Taco() {
-//		
-//	}
+	public Taco(String description, Integer id, Double price) {
+		super();
+		this.description = description;
+		this.id = id;
+		this.price = price;
+	}
+	
+	public Taco() {
+		
+	}
 
 	public String getDescription() {
 		return description;
