@@ -1,0 +1,20 @@
+{
+  "tacos": [
+    {
+      "price": 2.5,
+      "filling": "vegetables"
+    },
+    {
+      "price": 3,
+      "filling": "chicken"
+    },
+    {
+      "price": 3,
+      "filling": "beef"
+    },
+    {
+      "price": 3.5,
+      "filling": "chorizo"
+    }
+  ]
+}
